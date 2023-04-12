@@ -86,6 +86,6 @@ Change '/commands/changemodel.js' to have whatever models you have installed to 
 Start the discord bot
 
 ```bash
-  npm index.js
+  node index.js
 ```
 
