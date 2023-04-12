@@ -24,6 +24,12 @@ module.exports = {
 
     const serverID = message.guild.id;
     const serverSettingsFile = `./serverSettings/${serverID}.json`;
+
+    if (!fs.existsSync(serverSettingsFile)) {
+      const defaultSettings = { systemPrompt: 'You are a helpful assistant who responds succinctly', model: 'GPT' };
+      fs.writeFileSync(serverSettingsFile, JSON.stringify(defaultSettings));
+    }
+
     const serverSettings = JSON.parse(fs.readFileSync(serverSettingsFile));
 
     let caption = '';
