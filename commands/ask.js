@@ -51,7 +51,7 @@ module.exports = {
     }
 
     const userMessage = args.join(' ');
-    const modifiedUserMessage = caption ? `(${caption}) ${userMessage}` : userMessage;
+    const modifiedUserMessage = caption ? `${message.author.username}:(${caption}) ${userMessage}` : `${message.author.username}:${userMessage}`;
     const aiResponse = serverSettings.model === 'GPT' ? await gpt.getAIResponse(modifiedUserMessage, serverID) : 'PYG is not supported currently! Switch back to GPT';
 
     message.reply(aiResponse);
